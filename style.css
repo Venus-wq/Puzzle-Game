@@ -1,0 +1,294 @@
+/* Reset some basics */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #303133;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#devUnlockPanel {
+  margin: 10px 0;
+}
+
+/* Dev Unlock Button */
+.dev-unlock-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #ff6f61;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  box-shadow: 0 3px 8px rgba(255, 111, 97, 0.6);
+  transition: background 0.3s ease;
+  z-index: 1000;
+}
+
+.dev-unlock-btn:hover {
+  background: #ff3b27;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 25px;
+  font-size: 2.5rem;
+  text-align: center;
+  user-select: none;
+  color: #2c3e50;
+}
+
+/* Level Map */
+.level-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+  gap: 25px;
+  max-width: 360px;
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.level-button {
+  background: #3498db;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 12px 0;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.level-button:hover:not(.locked) {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+.level-button.locked {
+  background: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Game UI */
+.hidden {
+  display: none;
+}
+
+#gameUI {
+  width: 500px;
+  background: rgb(61, 61, 61);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  user-select: none;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  background: #2ecc71;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.4);
+  transition: background 0.3s ease, transform 0.15s ease;
+  flex: 1;
+  margin: 0 5px;
+  user-select: none;
+}
+
+.controls button:first-child {
+  margin-left: 0;
+}
+
+.controls button:last-child {
+  margin-right: 0;
+}
+
+.controls button:hover {
+  background: #27ae60;
+  transform: translateY(-2px);
+}
+
+/* Puzzle container grid */
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+/* Each tile */
+.puzzle-container .tile {
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.puzzle-container .tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.puzzle-container .tile.empty {
+  background: #ecf0f1;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Hint image */
+#hintImage {
+  display: block;
+  width: 300px;
+  margin: 0 auto 15px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  user-select: none;
+}
+
+/* Message */
+#message {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 24px;
+  color: #e74c3c; /* red for errors */
+  user-select: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .puzzle-container {
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+  }
+
+  .puzzle-container .tile {
+    background-size: 270px 270px;
+  }
+
+  #gameUI {
+    width: 280px;
+    padding: 15px;
+  }
+}
+
+}
+
+/* Game UI */
+#gameUI {
+    padding: 10px;
+    max-width: none;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #023e8a;
+}
+
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 2px;
+  justify-content: center;
+  margin: 0 auto;
+.puzzle-container {
+    width: 85vw;
+}
+
+}
+
+.tile {
+  background-size: 300px 300px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: outline 0.2s;
+}
+
+.tile.selected {
+  outline: 3px solid #00b4d8;
+}
+
+#hintImage {
+  margin-top: 10px;
+  max-width: 300px;
+  border: 2px solid #ccc;
+  display: none;
+}
+
+#message {
+  font-weight: bold;
+  margin-top: 15px;
+  min-height: 1.5em;
+}
+
+.hidden {
+  display: none;
+}

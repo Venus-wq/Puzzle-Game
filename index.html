@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Puzzle Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Dev Unlock Button -->
+  <button id="devUnlockBtn" class="dev-unlock-btn">🔒</button>
+
+  <h1>🧩 Image Puzzle Game</h1>
+
+  <!-- Level Selection -->
+  <div id="levelMap" class="level-map"></div>
+
+  <!-- Game Interface -->
+  <div id="gameUI" class="hidden">
+    <div class="info-bar">
+      <span id="levelInfo">Level: 1</span>
+      <span>⏱ Time: <span id="time">60</span>s</span>
+      <span id="moves">Moves: 0</span>
+    </div>
+
+    <div class="controls">
+      <button id="hintBtn">💡 Hint</button>
+      <button id="restartBtn">🔄 Restart</button>
+      <button id="submitBtn">✅ Submit</button>
+      <button id="backBtn">↩ Back</button>
+    </div>
+
+    <div class="puzzle-container" id="puzzle"></div>
+    <img id="hintImage" src="" alt="Hint" />
+    <p id="message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
